@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script>
+    function validate()
+    {
+        var input = document.getElementById("number").value;
+       
+        var pattern = /^\d*$/;
+        
+        if (input.length === 0)
+        {
+            alert("Invalid Item");
+            return false;
+        }
+        else if (pattern.test(input))
+        {
+            if(input % 3  == 0)
+            {
+               alert("Fuzz");
+            }
+            else if(input % 5 == 0)
+           {
+               alert("Buzz");
+           }
+           else 
+           { alert("FUZZBUZZ")}
+          
+           return true;
+        }
+        else
+        {
+            alert("Invalid Item " + input);
+            return false;
+        }
+    }
+</script>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <label class="display-8">Enter Integer</label> <input type="text" id="number" asp-action/>
+    <input type="submit" value ="submit" onclick ="validate()" />
+     <br/>
+    <label class="display-8" id="result"></label> 
+</div>
